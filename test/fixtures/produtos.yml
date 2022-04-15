@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nomeproduto: MyString
+  dtavalidade: 2022-04-12 21:44:20
+  codbarras: MyString
+
+two:
+  nomeproduto: MyString
+  dtavalidade: 2022-04-12 21:44:20
+  codbarras: MyString

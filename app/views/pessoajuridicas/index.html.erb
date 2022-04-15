@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pessoajuridicas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Cnpj</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pessoajuridicas.each do |pessoajuridica| %>
+      <tr>
+        <td><%= pessoajuridica.nome %></td>
+        <td><%= pessoajuridica.cnpj %></td>
+        <td><%= link_to 'Show', pessoajuridica %></td>
+        <td><%= link_to 'Edit', edit_pessoajuridica_path(pessoajuridica) %></td>
+        <td><%= link_to 'Destroy', pessoajuridica, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pessoajuridica', new_pessoajuridica_path %>

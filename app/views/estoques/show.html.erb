@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Qtdentrada:</strong>
+  <%= @estoque.qtdentrada %>
+</p>
+
+<p>
+  <strong>Qtdsaida:</strong>
+  <%= @estoque.qtdsaida %>
+</p>
+
+<p>
+  <strong>Dataentrada:</strong>
+  <%= @estoque.dataentrada %>
+</p>
+
+<p>
+  <strong>Datasaida:</strong>
+  <%= @estoque.datasaida %>
+</p>
+
+<p>
+  <strong>Valorentrada:</strong>
+  <%= @estoque.valorentrada %>
+</p>
+
+<p>
+  <strong>Valorsaida:</strong>
+  <%= @estoque.valorsaida %>
+</p>
+
+<%= link_to 'Edit', edit_estoque_path(@estoque) %> |
+<%= link_to 'Back', estoques_path %>

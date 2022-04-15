@@ -1,0 +1,2 @@
+class Pessoajuridica < ApplicationRecord
+end

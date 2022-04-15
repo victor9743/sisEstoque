@@ -1,0 +1,2 @@
+class Pessoafisica < ApplicationRecord
+end
