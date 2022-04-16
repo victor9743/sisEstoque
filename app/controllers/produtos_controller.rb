@@ -1,13 +1,9 @@
 class ProdutosController < ApplicationController
-  before_action :set_produto, only: %i[ show edit update destroy ]
+  before_action :set_produto, only: %i[ edit update destroy ]
 
   # GET /produtos or /produtos.json
   def index
     @produtos = Produto.all.page(params[:page])
-  end
-
-  # GET /produtos/1 or /produtos/1.json
-  def show
   end
 
   # GET /produtos/new
@@ -25,8 +21,8 @@ class ProdutosController < ApplicationController
 
     respond_to do |format|
       if @produto.save
-        format.html { redirect_to produto_url(@produto), notice: "Produto was successfully created." }
-        format.json { render :show, status: :created, location: @produto }
+        format.html { redirect_to produtos_url(@produto), notice: "Produto was successfully created." }
+        format.json { render :index, status: :created, location: @produto }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @produto.errors, status: :unprocessable_entity }
@@ -38,8 +34,8 @@ class ProdutosController < ApplicationController
   def update
     respond_to do |format|
       if @produto.update(produto_params)
-        format.html { redirect_to produto_url(@produto), notice: "Produto was successfully updated." }
-        format.json { render :show, status: :ok, location: @produto }
+        format.html { redirect_to produtos_url(@produto), notice: "Produto was successfully updated." }
+        format.json { render :index, status: :ok, location: @produto }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @produto.errors, status: :unprocessable_entity }
