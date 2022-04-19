@@ -6,6 +6,7 @@ ruby '2.7.1'
 gem 'kaminari-i18n'
 gem 'kaminari', '~> 1.2', '>= 1.2.1'
 gem "bootstrap5-kaminari-views"
+gem 'i18n', '1.10.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.0.4', '>= 6.0.4.7'

@@ -21,11 +21,11 @@ class ProdutosController < ApplicationController
 
     respond_to do |format|
       if @produto.save
-        format.html { redirect_to produtos_url(@produto), notice: "Produto was successfully created." }
+        format.html { redirect_to produtos_url(@produto), notice: "Produto criado com sucesso" }
         format.json { render :index, status: :created, location: @produto }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @produto.errors, status: :unprocessable_entity }
+        format.html { render :new, status: :unprocessable_entity, notice: "erro" }
+        format.json { render json: @produto.errors, status: :unprocessable_entity, notice: "erro" }
       end
     end
   end
@@ -34,7 +34,7 @@ class ProdutosController < ApplicationController
   def update
     respond_to do |format|
       if @produto.update(produto_params)
-        format.html { redirect_to produtos_url(@produto), notice: "Produto was successfully updated." }
+        format.html { redirect_to produtos_url(@produto), notice: "Produto salvo com sucesso" }
         format.json { render :index, status: :ok, location: @produto }
       else
         format.html { render :edit, status: :unprocessable_entity }

@@ -13,40 +13,40 @@
 ActiveRecord::Schema.define(version: 2022_04_13_010055) do
 
   create_table "estoques", force: :cascade do |t|
-    t.integer "qtdentrada"
-    t.integer "qtdsaida"
-    t.datetime "dataentrada"
-    t.datetime "datasaida"
-    t.float "valorentrada"
-    t.float "valorsaida"
+    t.integer "qtdentrada", null: false
+    t.integer "qtdsaida", null: false
+    t.datetime "dataentrada", null: false
+    t.datetime "datasaida", null: false
+    t.float "valorentrada", null: false
+    t.float "valorsaida", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "pessoafisicas", force: :cascade do |t|
-    t.string "nome"
-    t.string "cpf"
+    t.string "nome", null: false
+    t.string "cpf", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "pessoajuridicas", force: :cascade do |t|
-    t.string "nome"
+    t.string "nome", null: false
     t.string "cnpj"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "produtos", force: :cascade do |t|
-    t.string "nomeproduto"
-    t.datetime "dtavalidade"
-    t.string "codbarras"
+    t.string "nomeproduto", null: false
+    t.datetime "dtavalidade", null: false
+    t.string "codbarras", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tipoprodutos", force: :cascade do |t|
-    t.string "nomeproduto"
+    t.string "nomeproduto", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -12,23 +12,23 @@
   <% end %>
 
   <div class="field mb-3">
-    <%= form.label :nomeproduto , class:"form-label" %>
+    <%= form.label t("fields.nomeproduto") , class:"form-label" %>
     <%= form.text_field :nomeproduto, class:"form-control form-control-sm col-lg-6 col-sm-12" %>
   </div>
 
   <div class="field mb-3">
-    <%= form.label :dtavalidade, class:"form-label" %>
+    <%= form.label t("fields.dtavalidade"), class:"form-label" %>
     <%= form.date_field :dtavalidade, class:"form-control form-control-sm col-lg-4 col-sm-12" %>
   </div>
 
   <div class="field mb-3">
-    <%= form.label :codbarras, class:"form-label" %>
+    <%= form.label t("fields.codbarras"), class:"form-label" %>
     <%= form.number_field :codbarras, class:"form-control form-control-sm col-lg-4 col-sm-12" %>
   </div>
 
   <div class="actions text-end row">
     <div class="d-flex justify-content-start col-6">
-    <%= link_to 'Back', produtos_path, class: "btn btn-sm btn-primary"  %>
+    <%= link_to t('fields.back'), produtos_path, class: "btn btn-sm btn-primary"  %>
     </div>
     <div class="d-flex justify-content-end col-6">
       <%= form.submit "Salvar", class: "btn btn-sm btn-success" %>

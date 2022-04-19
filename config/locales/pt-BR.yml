@@ -1,0 +1,21 @@
+pt-BR:
+  date:
+    formats:
+      default: "%d/%m/%Y"
+  fields:
+    # produtos
+    nomeproduto: "Nome do produto"
+    dtavalidade: "Data de validade"
+    codbarras: "Codigo de barras"
+    back: "Voltar"
+  activerecord:
+    errors:
+      models:
+        produto:
+          attributes:
+            nomeproduto:
+              blank: "Preenchimento do produto invalido"
+            dtavalidade:
+              blank: "Preenchimento do campo invalido" 
+            codbarras:
+              blank: "Preenchimento do campo invalido"

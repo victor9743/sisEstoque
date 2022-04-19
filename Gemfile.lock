@@ -225,6 +225,7 @@ DEPENDENCIES
   bootstrap5-kaminari-views
   byebug
   capybara (>= 2.15)
+  i18n (= 1.10.0)
   jbuilder (~> 2.7)
   kaminari (~> 1.2, >= 1.2.1)
   kaminari-i18n
