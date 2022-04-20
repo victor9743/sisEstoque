@@ -1,9 +1,21 @@
+require 'csv'
 class ProdutosController < ApplicationController
   before_action :set_produto, only: %i[ edit update destroy ]
 
   # GET /produtos or /produtos.json
   def index
+    @produtosAll = Produto.all
     @produtos = Produto.all.page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @produtosAll.to_csv(['id', 'nomeproduto', 'dtavalidade', 'codbarras']) }
+    end
+  end
+
+  def import 
+    Product.import(params[:file])
+    redirect_to root_url, notice: "Produtos importados."
   end
 
   # GET /produtos/new

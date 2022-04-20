@@ -14,8 +14,32 @@ pt-BR:
         produto:
           attributes:
             nomeproduto:
-              blank: "Preenchimento do produto invalido"
+              blank: "Preenchimento invalido"
             dtavalidade:
-              blank: "Preenchimento do campo invalido" 
+              blank: "Preenchimento invalido" 
             codbarras:
-              blank: "Preenchimento do campo invalido"
+              blank: "Preenchimento invalido"
+    models:
+      produto: 
+        one: Produto
+        other: Produtos
+      estoque: 
+        one: Estoque
+        other: Estoques
+      pessoafisica: 
+        one: Pessoafisica
+        other: Pessoasfisicas
+      pessoajuridica: 
+        one: Pessoajuridica
+        other: Pessoajuridicas
+      tipoproduto: 
+        one: Tipoproduto
+        other: Tiposprodutos
+    attributes:
+      produto:
+        id: Id do produto
+        nomeproduto: Nome do produto
+        codbarras: Codigo de barras
+        dtavalidade: Data de validade
+        created_at: Criado em
+        updated_aT: Atualizado em

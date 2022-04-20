@@ -1,16 +1,22 @@
 <%= form_with(model: produto, local: true) do |form| %>
   <% if produto.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(produto.errors.count, "error") %> prohibited this produto from being saved:</h2>
+      
+      <% if (produto.errors.any?) %>
 
-      <ul>
-        <% produto.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+      <% produto.errors.full_messages.each do |message| %>
+      <div class="alert alert-danger d-flex flex-row-end alert-dismissible fade show" role="alert" style="width:500px;">
+        <i class="fa-solid fa-triangle-exclamation mr-2"></i><%= message %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+      <% end %>
+   
+      <% end %>
     </div>
   <% end %>
-
+<div >
   <div class="field mb-3">
     <%= form.label t("fields.nomeproduto") , class:"form-label" %>
     <%= form.text_field :nomeproduto, class:"form-control form-control-sm col-lg-6 col-sm-12" %>
@@ -34,4 +40,8 @@
       <%= form.submit "Salvar", class: "btn btn-sm btn-success" %>
     </div>
   </div>
+</div>
 <% end %>
+<script>
+
+</script>
