@@ -1,3 +1,12 @@
 class ApplicationController < ActionController::Base
-    require 'csv'
+    layout :layout_by_resource
+
+    protected
+    def layout_by_resource
+        if devise_controller? && resource_class == User
+            "login"
+        else
+            "application"
+        end
+    end
 end
