@@ -1,6 +1,6 @@
 require 'csv'
 class ProdutosController < ApplicationController
-  #before_action :authenticate_user!
+  before_action :authenticate_user!
   layout 'menuInicialApplication'
   before_action :set_produto, only: %i[ edit update destroy ]
 

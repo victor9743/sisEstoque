@@ -5,7 +5,7 @@
       <% if (produto.errors.any?) %>
 
       <% produto.errors.full_messages.each do |message| %>
-      <div class="alert alert-danger d-flex flex-row-end alert-dismissible fade show" role="alert" style="width:500px;">
+      <div class="alert alert-sm alert-danger d-flex flex-row-end alert-dismissible fade show" role="alert" style="width:65%;">
         <i class="fa-solid fa-triangle-exclamation mr-2"></i><%= message %>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -19,17 +19,17 @@
 <div >
   <div class="field mb-3">
     <%= form.label t("fields.nomeproduto") , class:"form-label" %>
-    <%= form.text_field :nomeproduto, class:"form-control form-control-sm col-lg-6 col-sm-12" %>
+    <%= form.text_field :nomeproduto, class:"form-control form-control-sm col-lg-6 col-sm-12", id:"nomeProduto" %>
   </div>
 
   <div class="field mb-3">
     <%= form.label t("fields.dtavalidade"), class:"form-label" %>
-    <%= form.date_field :dtavalidade, class:"form-control form-control-sm col-lg-4 col-sm-12" %>
+    <%= form.date_field :dtavalidade, class:"form-control form-control-sm col-lg-4 col-sm-12", id:"dtavalidade" %>
   </div>
 
   <div class="field mb-3">
     <%= form.label t("fields.codbarras"), class:"form-label" %>
-    <%= form.number_field :codbarras, class:"form-control form-control-sm col-lg-4 col-sm-12" %>
+    <%= form.number_field :codbarras, class:"form-control form-control-sm col-lg-4 col-sm-12", id:"codBarras" %>
   </div>
 
   <div class="actions text-end row">
@@ -42,6 +42,4 @@
   </div>
 </div>
 <% end %>
-<script>
 
-</script>

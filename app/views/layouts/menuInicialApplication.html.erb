@@ -46,8 +46,13 @@
                       <%= link_to produtos_path, class: "nav-link text-light" do %>
                       <div class="sb-nav-link-icon"><i class="fa-solid fa-dolly"></i></div>
                       Produtos
-                      <% end %>                     
+                      <% end %>
+                      <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-light" do %>
+                        <div class="sb-nav-link-icon"><i class="fa-solid fa-right-from-bracket"></i></div>
+                        Sair
+                        <% end %>                     
                   </div>
+                  
               </div>
           </nav>
       </div>
