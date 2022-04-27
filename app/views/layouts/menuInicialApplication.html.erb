@@ -44,13 +44,31 @@
                       <div class="sb-sidenav-menu-heading ">Cadastros                      
                       </div>                    
                       <%= link_to produtos_path, class: "nav-link text-light" do %>
-                      <div class="sb-nav-link-icon"><i class="fa-solid fa-dolly"></i></div>
-                      Produtos
+                        <div class="sb-nav-link-icon"><i class="fa-solid fa-dolly"></i></div>
+                        Produtos
                       <% end %>
+                      <%= link_to produtos_path, class: "nav-link text-light" do %>
+                        <div class="sb-nav-link-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                        Estoque
+                      <% end %>
+                      <%= link_to produtos_path, class: "nav-link text-light" do %>
+                        <div class="sb-nav-link-icon"><i class="fa-solid fa-person"></i></div>
+                        Pessoa Fisica
+                      <% end %>
+                      <%= link_to produtos_path, class: "nav-link text-light" do %>
+                        <div class="sb-nav-link-icon"><i class="fa-solid fa-building"></i></div>
+                        Pessoa Juridica
+                      <% end %>
+                      <%= link_to produtos_path, class: "nav-link text-light" do %>
+                        <div class="sb-nav-link-icon"><i class="fa-solid fa-user-tie"></i></div>
+                        Usuarios
+                      <% end %>
+
+
                       <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-light" do %>
                         <div class="sb-nav-link-icon"><i class="fa-solid fa-right-from-bracket"></i></div>
                         Sair
-                        <% end %>                     
+                      <% end %>                     
                   </div>
                   
               </div>
