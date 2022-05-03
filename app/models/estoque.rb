@@ -1,9 +1,12 @@
 class Estoque < ApplicationRecord
 
     paginates_per 5
-    validates :nomeproduto, presence: true
-    validates :dtavalidade, presence: true
-    validates :codbarras, presence: true
+    validates :qtdentrada, presence: true
+    validates :qtdsaida, presence: true
+    validates :dataentrada, presence: true
+    validates :datasaida, presence: true
+    validates :valorentrada, presence: true
+    validates :valorsaida, presence: true
 
     def self.to_csv(fields = column_names, options = {})
         CSV.generate(options) do |csv|

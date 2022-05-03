@@ -26,6 +26,20 @@ pt-BR:
               blank: "Preenchimento invalido" 
             codbarras:
               blank: "Preenchimento invalido"
+        estoque:
+          attributes:
+            qtdentrada:
+              blank: "Preenchimento invalido"
+            qtdsaida:
+              blank: "Preenchimento invalido"
+            dataentrada:
+              blank: "Preenchimento invalido"
+            datasaida:
+              blank: "Preenchimento invalido"
+            valorentrada:
+              blank: "Preenchimento invalido"
+            valorsaida:
+              blank: "Preenchimento invalido"
     models:
       produto: 
         one: Produto

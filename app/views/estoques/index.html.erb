@@ -19,6 +19,7 @@
   <tbody>
     <% @estoquesAll.each do |estoque| %>
       <tr>
+        <td><%= estoque.id %></td>
         <td><%= estoque.qtdentrada %></td>
         <td><%= estoque.qtdsaida %></td>
         <td><%= estoque.dataentrada %></td>
