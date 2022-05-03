@@ -10,10 +10,14 @@ Rails.application.routes.draw do
   root to: 'produtos#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  #csv
-
-  #produtos
+  #csv import
+  #planilha produtos
   resources :produtos do
+    collection { post :import }
+  end
+
+  #planilha estoque
+  resources :estoques do
     collection { post :import }
   end
 end

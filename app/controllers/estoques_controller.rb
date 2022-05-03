@@ -1,9 +1,22 @@
+require 'csv'
 class EstoquesController < ApplicationController
   before_action :set_estoque, only: %i[ show edit update destroy ]
+  layout 'menuInicialApplication'
 
   # GET /estoques or /estoques.json
   def index
-    @estoques = Estoque.all
+    @estoquesAll = Estoque.all
+    @estoques = Estoque.all.page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @estoquesAll.to_csv(['id', 'Qtdentrada', 'Qtdsaida', 'Dataentrada', 'Datasaida', 'Valorentrada', 'Valorsaida']) }
+    end
+  end
+
+  def import 
+    Estoque.import(params[:file])
+    redirect_to root_url, notice: "Relatório importado."
   end
 
   # GET /estoques/1 or /estoques/1.json

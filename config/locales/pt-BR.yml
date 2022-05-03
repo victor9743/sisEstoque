@@ -2,11 +2,18 @@ pt-BR:
   date:
     formats:
       default: "%d/%m/%Y"
+    order: ["day", "month", "year"]
   fields:
     # produtos
     nomeproduto: "Nome do produto"
     dtavalidade: "Data de validade"
     codbarras: "Codigo de barras"
+    qtdentrada: Qtd de entrada
+    qtdsaida: Qtd de saida
+    dataentrada: Data de entrada
+    datasaida: Data de saida
+    valorentrada: Valor de entrada
+    valorsaida: Valor de saida
     back: "Voltar"
   activerecord:
     errors:
@@ -43,3 +50,10 @@ pt-BR:
         dtavalidade: Data de validade
         created_at: Criado em
         updated_aT: Atualizado em
+      estoque:
+        qtdentrada: Qtd de entrada
+        qtdsaida: Qtd de saida
+        dataentrada: Data de entrada
+        datasaida: Data de saida
+        valorentrada: Valor de entrada
+        valorsaida: Valor de saida

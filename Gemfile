@@ -8,6 +8,7 @@ gem 'kaminari', '~> 1.2', '>= 1.2.1'
 gem "bootstrap5-kaminari-views"
 gem 'i18n', '1.10.0'
 gem 'devise'
+gem 'rails_db', '~> 2.4', '>= 2.4.1'
 gem 'devise-bootstrap-views', '~> 1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'

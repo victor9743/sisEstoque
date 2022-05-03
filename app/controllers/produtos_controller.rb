@@ -17,7 +17,7 @@ class ProdutosController < ApplicationController
 
   def import 
     Product.import(params[:file])
-    redirect_to root_url, notice: "Produtos importados."
+    redirect_to root_url, notice: "Relatório importados."
   end
 
   # GET /produtos/new

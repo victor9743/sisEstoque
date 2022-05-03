@@ -47,7 +47,7 @@
                         <div class="sb-nav-link-icon"><i class="fa-solid fa-dolly"></i></div>
                         Produtos
                       <% end %>
-                      <%= link_to produtos_path, class: "nav-link text-light" do %>
+                      <%= link_to estoques_path, class: "nav-link text-light" do %>
                         <div class="sb-nav-link-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
                         Estoque
                       <% end %>
@@ -79,7 +79,6 @@
               <div class="container-fluid px-2">
                   
                   <div class="card mb-4 mt-2 container">
-                  <h3 class="mt-4 ml-3">Produtos</h3>
                       <div class="card-body">
                         <%= yield %>
                       </div>
