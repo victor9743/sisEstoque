@@ -38,7 +38,7 @@ class EstoquesController < ApplicationController
 
     respond_to do |format|
       if @estoque.save
-        format.html { redirect_to estoque_url(@estoque), notice: "Estoque was successfully created." }
+        format.html { redirect_to estoques_url, notice: "Item adicionado com sucesso" }
         format.json { render :show, status: :created, location: @estoque }
       else
         format.html { render :new, status: :unprocessable_entity }

@@ -35,7 +35,7 @@ class ProdutosController < ApplicationController
 
     respond_to do |format|
       if @produto.save
-        format.html { redirect_to produtos_url(@produto), notice: "Produto criado com sucesso" }
+        format.html { redirect_to produtos_url, notice: "Produto criado com sucesso" }
         format.json { render :index, status: :created, location: @produto }
       else
         format.html { render :new, status: :unprocessable_entity, notice: "erro" }
