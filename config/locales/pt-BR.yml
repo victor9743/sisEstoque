@@ -45,6 +45,7 @@ pt-BR:
               blank: "Preenchimento invalido"
             produto:
               blank: "Preenchimento invalido"
+              required: "Preenchimento do produto obrigatório"
     models:
       produto: 
         one: Produto
