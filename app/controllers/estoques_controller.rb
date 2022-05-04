@@ -78,6 +78,6 @@ class EstoquesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def estoque_params
-      params.require(:estoque).permit(:qtdentrada, :qtdsaida, :dataentrada, :datasaida, :valorentrada, :valorsaida)
+      params.require(:estoque).permit(:qtdentrada, :qtdsaida, :dataentrada, :datasaida, :valorentrada, :valorsaida, :produto_id)
     end
 end

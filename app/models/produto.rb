@@ -1,9 +1,11 @@
 class Produto < ApplicationRecord
+     has_many :estoques
     #kaminari
     paginates_per 5
     validates :nomeproduto, presence: true
     validates :dtavalidade, presence: true
     validates :codbarras, presence: true
+    validates :produto, presence: true
 
     def self.to_csv(fields = column_names, options = {})
         CSV.generate(options) do |csv|

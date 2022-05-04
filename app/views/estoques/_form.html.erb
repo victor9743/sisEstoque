@@ -14,6 +14,12 @@
     </div>
   <% end %>
 
+  
+  <div class="field mb-3">
+    <%= form.label t("fields.produto"), class: 'form-label' %>
+    <%= form.select("produto_id", Produto.all.collect {|p| [ p.nomeproduto, p.id ] }, { include_blank: "Selecione o produto" }, class:"form-select form-select-sm col-lg-6 col-sm-12") %>
+  </div>
+
   <div class="field mb-3">
     <%= form.label t("fields.qtdentrada"), class: 'form-label' %>
     <%= form.number_field :qtdentrada, class:"form-control form-control-sm col-lg-6 col-sm-12"  %>

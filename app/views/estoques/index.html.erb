@@ -6,6 +6,7 @@
   <thead class="text-light">
     <tr>
       <th>#</th>
+      <th>Nome do Produto</th>
       <th>Qtd. entrada</th>
       <th>Qtd. saida</th>
       <th>Data de entrada</th>
@@ -18,17 +19,22 @@
 
   <tbody>
     <% @estoquesAll.each do |estoque| %>
-      <tr>
+      <tr style="text-align:right">
         <td><%= estoque.id %></td>
+        <td><%= estoque.produto.nomeproduto %></td>
         <td><%= estoque.qtdentrada %></td>
         <td><%= estoque.qtdsaida %></td>
-        <td><%= estoque.dataentrada %></td>
-        <td><%= estoque.datasaida %></td>
-        <td><%= estoque.valorentrada %></td>
-        <td><%= estoque.valorsaida %></td>
-        <td><%= link_to 'Show', estoque %>
-            <%= link_to 'Edit', edit_estoque_path(estoque) %>
-            <%= link_to 'Destroy', estoque, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= formatarData(estoque.dataentrada) %></td>
+        <td><%= formatarData(estoque.datasaida) %></td>
+        <td><%= formatarValor(estoque.valorentrada) %></td>
+        <td><%= formatarValor(estoque.valorsaida) %></td>
+        <td style="text-align:center"><%= link_to edit_estoque_path(estoque) do %>
+              <i class="fa fa-edit mr-2 text-warning"></i>
+            <% end %>
+            <%= link_to estoque, method: :delete  do %>
+              <i class="fa-solid fa-trash text-danger"></i>
+            <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

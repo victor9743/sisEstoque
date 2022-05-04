@@ -14,6 +14,7 @@ pt-BR:
     datasaida: Data de saida
     valorentrada: Valor de entrada
     valorsaida: Valor de saida
+    produto: Nome do Produto
     back: "Voltar"
   activerecord:
     errors:
@@ -25,6 +26,8 @@ pt-BR:
             dtavalidade:
               blank: "Preenchimento invalido" 
             codbarras:
+              blank: "Preenchimento invalido"
+            produto:
               blank: "Preenchimento invalido"
         estoque:
           attributes:
@@ -39,6 +42,8 @@ pt-BR:
             valorentrada:
               blank: "Preenchimento invalido"
             valorsaida:
+              blank: "Preenchimento invalido"
+            produto:
               blank: "Preenchimento invalido"
     models:
       produto: 
@@ -71,3 +76,4 @@ pt-BR:
         datasaida: Data de saida
         valorentrada: Valor de entrada
         valorsaida: Valor de saida
+        produto_id: Produto

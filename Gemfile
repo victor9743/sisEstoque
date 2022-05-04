@@ -10,6 +10,7 @@ gem 'i18n', '1.10.0'
 gem 'devise'
 gem 'rails_db', '~> 2.4', '>= 2.4.1'
 gem 'devise-bootstrap-views', '~> 1.0'
+gem 'money'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.0.4', '>= 6.0.4.7'
