@@ -1,29 +1,44 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Pessoafisicas</h1>
+<h3>Clientes Cadastrados</h3>
 
-<table>
-  <thead>
+<table class="table table-bordered table-hover">
+  <thead class="text-light">
     <tr>
+      <th>#</th>
       <th>Nome</th>
       <th>Cpf</th>
-      <th colspan="3"></th>
+      <th >Opções</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @pessoafisicas.each do |pessoafisica| %>
+    <% @pessoafisicasAll.each do |pessoafisica| %>
       <tr>
+        <td><%= pessoafisica.id %></td>
         <td><%= pessoafisica.nome %></td>
         <td><%= pessoafisica.cpf %></td>
-        <td><%= link_to 'Show', pessoafisica %></td>
-        <td><%= link_to 'Edit', edit_pessoafisica_path(pessoafisica) %></td>
-        <td><%= link_to 'Destroy', pessoafisica, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', pessoafisica %>
+            <%= link_to 'Edit', edit_pessoafisica_path(pessoafisica) %>
+            <%= link_to 'Destroy', pessoafisica, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Pessoafisica', new_pessoafisica_path %>
+<div class="text-center" >
+  <%= paginate @pessoafisicas, theme: 'bootstrap-5', pagination_class: "pagination-sm flex-wrap justify-content-center",
+                   nav_class: "d-inline-block"%>
+</div>
+<div class="row actions text-end1">
+  <div class="d-flex justify-content-start col-6">
+    <div class="col-6">
+      Total de Registros: <%= @pessoafisicasAll.count %>
+    </div>
+     <div class="col-6">
+      Gerar relatorio CSV <a href="/pessoafisicas.csv"><i class="fa-solid fa-file-csv"></i></a>
+    </div>
+  </div>
+  <div class="d-flex justify-content-end col-6">
+    <%= link_to "Cadastrar", new_pessoafisica_path, class:"btn btn-sm btn-success" %>
+  </div>

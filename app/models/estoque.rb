@@ -13,9 +13,9 @@ class Estoque < ApplicationRecord
     def self.to_csv(fields = column_names, options = {})
         CSV.generate(options) do |csv|
         csv << fields
-        all.each do |stock|
-            csv << stock.attributes.values_at(*fields)
-        end
+            all.each do |stock|
+                csv << stock.attributes.values_at(*fields)
+            end
         end
     end
 

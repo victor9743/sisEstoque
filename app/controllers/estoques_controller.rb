@@ -1,6 +1,7 @@
 require 'csv'
 class EstoquesController < ApplicationController
   before_action :set_estoque, only: %i[ show edit update destroy ]
+  before_action :produtos_opcoes, only: [:new, :create, :update, :edit]
   layout 'menuInicialApplication'
 
   # GET /estoques or /estoques.json
@@ -72,6 +73,10 @@ class EstoquesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def produtos_opcoes
+      @opProdutos =  Produto.all.pluck(:nomeproduto, :id)
+    end
+
     def set_estoque
       @estoque = Estoque.find(params[:id])
     end

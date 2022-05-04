@@ -5,7 +5,6 @@ class Produto < ApplicationRecord
     validates :nomeproduto, presence: true
     validates :dtavalidade, presence: true
     validates :codbarras, presence: true
-    validates :produto, presence: true
 
     def self.to_csv(fields = column_names, options = {})
         CSV.generate(options) do |csv|

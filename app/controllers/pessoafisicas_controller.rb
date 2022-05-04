@@ -1,9 +1,21 @@
 class PessoafisicasController < ApplicationController
   before_action :set_pessoafisica, only: %i[ show edit update destroy ]
+  layout 'menuInicialApplication'
 
   # GET /pessoafisicas or /pessoafisicas.json
   def index
-    @pessoafisicas = Pessoafisica.all
+    @pessoafisicasAll = Pessoafisica.all
+    @pessoafisicas = Pessoafisica.all.page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @pessoafisicasAll.to_csv(['id', 'Nome', 'Cpf']) }
+    end
+  end
+
+  def import 
+    Estoque.import(params[:file])
+    redirect_to root_url, notice: "Relatório importado."
   end
 
   # GET /pessoafisicas/1 or /pessoafisicas/1.json

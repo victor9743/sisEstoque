@@ -20,4 +20,8 @@ Rails.application.routes.draw do
   resources :estoques do
     collection { post :import }
   end
+
+
+  #planilha pessoas fisica
+
 end

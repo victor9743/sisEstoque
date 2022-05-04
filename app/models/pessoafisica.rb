@@ -1,2 +1,19 @@
 class Pessoafisica < ApplicationRecord
+
+    def self.to_csv(fields = column_names, options = {})
+        CSV.generate(options) do |csv|
+        csv << fields
+            all.each do |stock|
+                csv << stock.attributes.values_at(*fields)
+            end
+        end
+    end
+
+    def self.import(file)
+        CSV.foreach(file.path, headers: true) do |row|
+            stock_hash = row.to_hash
+            stock = find_or_create_by!(name: stock_hash['name'], category: stock_hash['category'])
+            stock.update_attributes(stock_hash)
+        end
+    end
 end
