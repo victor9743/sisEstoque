@@ -14,7 +14,7 @@ class PessoafisicasController < ApplicationController
   end
 
   def import 
-    Estoque.import(params[:file])
+    Pessoafisica.import(params[:file])
     redirect_to root_url, notice: "Relatório importado."
   end
 

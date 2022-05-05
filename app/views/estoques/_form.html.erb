@@ -2,7 +2,7 @@
   <% if estoque.errors.any? %>
     <div id="error_explanation">
        <% if (estoque.errors.any?) %>
-            <% estoque.errors.full_messages.each do |message| %>
+          <% estoque.errors.full_messages.each do |message| %>
             <div class="alert alert-sm alert-danger d-flex flex-row-end alert-dismissible fade show" role="alert" style="width:65%;">
               <i class="fa-solid fa-triangle-exclamation mr-2"></i><%= message %>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">

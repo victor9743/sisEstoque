@@ -1,9 +1,21 @@
 class PessoajuridicasController < ApplicationController
   before_action :set_pessoajuridica, only: %i[ show edit update destroy ]
+  layout 'menuInicialApplication'
 
   # GET /pessoajuridicas or /pessoajuridicas.json
   def index
-    @pessoajuridicas = Pessoajuridica.all
+    @pessoajuridicasAll = Pessoajuridica.all
+    @pessoajuridicas = Pessoajuridica.all.page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @pessoajuridicasAll.to_csv(['id', 'nome', 'cnpj']) }
+    end
+  end
+
+  def import 
+    Pessoajuridica.import(params[:file])
+    redirect_to root_url, notice: "Relatório importado."
   end
 
   # GET /pessoajuridicas/1 or /pessoajuridicas/1.json
@@ -24,8 +36,9 @@ class PessoajuridicasController < ApplicationController
     @pessoajuridica = Pessoajuridica.new(pessoajuridica_params)
 
     respond_to do |format|
-      if @pessoajuridica.save
-        format.html { redirect_to pessoajuridica_url(@pessoajuridica), notice: "Pessoajuridica was successfully created." }
+      if CNPJ.valid?(@pessoajuridica.cnpj)
+        @pessoajuridica.save
+        format.html { redirect_to pessoajuridicas_url, notice: "Pessoajuridica was successfully created." }
         format.json { render :show, status: :created, location: @pessoajuridica }
       else
         format.html { render :new, status: :unprocessable_entity }

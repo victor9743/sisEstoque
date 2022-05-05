@@ -23,5 +23,13 @@ Rails.application.routes.draw do
 
 
   #planilha pessoas fisica
+  resources :pessoafisicas do
+    collection { post :import }
+  end
+
+  #planilha pessoa juridica
+  resources :pessoajuridicas do
+    collection { post :import }
+  end
 
 end

@@ -3,7 +3,7 @@ module PessoafisicasHelper
 
     # formatacao cpf
     def formatCpf(number)
-        cpf = CPF.new(number)
-        cpf.formatted
+        number = CPF.new(number)
+        number.formatted
     end
 end
