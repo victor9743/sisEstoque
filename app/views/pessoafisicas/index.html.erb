@@ -2,7 +2,7 @@
 
 <h3>Clientes Cadastrados</h3>
 
-<table class="table table-bordered table-hover">
+<table class="table table-bordered table-hover container" style="width:700px">
   <thead class="text-light">
     <tr>
       <th>#</th>
@@ -15,12 +15,16 @@
   <tbody>
     <% @pessoafisicasAll.each do |pessoafisica| %>
       <tr>
-        <td><%= pessoafisica.id %></td>
+        <td style="width:40px"><%= pessoafisica.id %></td>
         <td><%= pessoafisica.nome %></td>
-        <td><%= pessoafisica.cpf %></td>
-        <td><%= link_to 'Show', pessoafisica %>
-            <%= link_to 'Edit', edit_pessoafisica_path(pessoafisica) %>
-            <%= link_to 'Destroy', pessoafisica, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td style="width:190px"><%= formatCpf(pessoafisica.cpf) %></td>
+        <td style="width:90px; text-align:center"><%= link_to edit_pessoafisica_path(pessoafisica) do %>
+              <i class="fa fa-edit mr-2 text-warning"></i>
+            <% end %>
+            <%= link_to pessoafisica, method: :delete do %>
+              <i class="fa-solid fa-trash text-danger"></i>
+            <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

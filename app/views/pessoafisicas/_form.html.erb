@@ -5,23 +5,33 @@
 
       <ul>
         <% pessoafisica.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <div class="alert alert-sm alert-danger d-flex flex-row-end alert-dismissible fade show" role="alert" style="width:65%;">
+            <i class="fa-solid fa-triangle-exclamation mr-2"></i><%= message %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :nome %>
-    <%= form.text_field :nome %>
+  <div class="field mb-3">
+    <%= form.label :nome, class:"form-label" %>
+    <%= form.text_field :nome, class:"form-control form-control-sm col-lg-4 col-sm-12"  %>
   </div>
 
-  <div class="field">
-    <%= form.label :cpf %>
-    <%= form.text_field :cpf %>
+  <div class="field mb-3">
+    <%= form.label :cpf, class:"form-label" %>
+    <%= form.text_field :cpf, class:"form-control form-control-sm col-lg-4 col-sm-12" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions text-end row">
+    <div class="d-flex justify-content-start col-6">
+      <%= link_to t('fields.back'), pessoafisicas_path, class: "btn btn-sm btn-primary"  %>
+    </div>
+    <div class="d-flex justify-content-end col-6">
+      <%= form.submit "Salvar", class: "btn btn-sm btn-success" %>
+    </div>
   </div>
 <% end %>

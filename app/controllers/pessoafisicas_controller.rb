@@ -9,7 +9,7 @@ class PessoafisicasController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.csv { send_data @pessoafisicasAll.to_csv(['id', 'Nome', 'Cpf']) }
+      format.csv { send_data @pessoafisicasAll.to_csv(['id', 'nome', 'cpf']) }
     end
   end
 
@@ -36,8 +36,9 @@ class PessoafisicasController < ApplicationController
     @pessoafisica = Pessoafisica.new(pessoafisica_params)
 
     respond_to do |format|
-      if @pessoafisica.save
-        format.html { redirect_to pessoafisica_url(@pessoafisica), notice: "Pessoafisica was successfully created." }
+      if CPF.valid?(@pessoafisica.cpf) && @pessoafisica.nome.length > 5
+        @pessoafisica.save
+        format.html { redirect_to pessoafisicas_url, notice: "Pessoafisica was successfully created." }
         format.json { render :show, status: :created, location: @pessoafisica }
       else
         format.html { render :new, status: :unprocessable_entity }

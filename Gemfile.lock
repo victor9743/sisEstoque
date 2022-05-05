@@ -78,6 +78,7 @@ GEM
       xpath (~> 3.2)
     childprocess (4.1.0)
     concurrent-ruby (1.1.10)
+    cpf_cnpj (0.5.0)
     crass (1.0.6)
     devise (4.8.1)
       bcrypt (~> 3.0)
@@ -258,6 +259,7 @@ DEPENDENCIES
   bootstrap5-kaminari-views
   byebug
   capybara (>= 2.15)
+  cpf_cnpj
   devise
   devise-bootstrap-views (~> 1.0)
   i18n (= 1.10.0)
