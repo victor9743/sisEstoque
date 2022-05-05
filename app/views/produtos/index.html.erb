@@ -1,23 +1,23 @@
 <p id="notice"><%= notice %></p>
 <h3>Produtos</h3>
-<table class="table table-bordered table-hover">
+<table class="table table-bordered table-hover container">
     <thead class="text-light">
         <tr>
           <th>#</th>
-          <th>Nome do produto</th>
-          <th>Data de validade</th>
+          <th>Produto</th>
+          <th>Validade</th>
           <th>Cod. barras</th>
-          <th colspan="3">Opções</th>
+          <th>Opções</th>
         </tr>
     </thead>
     <tbody>
       <% @produtos.each do |produto| %>
         <tr>
-          <td><%= produto.id %></td>
+          <td style="width:40px"><%= produto.id %></td>
           <td><%= produto.nomeproduto %></td>
-          <td><%= formatarData(produto.dtavalidade) %></td>
-          <td><%= produto.codbarras %></td>
-          <td><%= link_to edit_produto_path(produto) do %>
+          <td style="width:90px"><%= formatarData(produto.dtavalidade) %></td>
+          <td style="width:190px"><%= produto.codbarras %></td>
+          <td style="width:90px; text-align:center"><%= link_to edit_produto_path(produto) do %>
                 <i class="fa fa-edit mr-2 text-warning"></i>
               <% end %>
               <%= link_to produto, method: :delete do %>
@@ -32,17 +32,18 @@
   <%= paginate @produtos, theme: 'bootstrap-5', pagination_class: "pagination-sm flex-wrap justify-content-center",
                    nav_class: "d-inline-block"%>
 </div>
+<div class="d-flex justify-content-end col-12">
+<%= link_to "Cadastrar", new_produto_path, class:"btn btn-sm btn-success" %>
+</div>
 <div class="row actions text-end1">
-  <div class="d-flex justify-content-start col-6">
-    <div class="col-6">
-      Total de Registros: <%= @produtosAll.count %>
+  <div class="d-flex justify-content-start col-12">
+    <div class="col-6 justify-content-center">
+    <span style= "font-size: small">Total de Registros: <%= @produtosAll.count %></span>
     </div>
      <div class="col-6">
-      Gerar relatorio CSV <a href="/produtos.csv"><i class="fa-solid fa-file-csv"></i></a>
+     <span style= "font-size: small">CSV <a href="/produtos.csv"><i class="fa-solid fa-file-csv"></i></a></span>
     </div>
   </div>
-  <div class="d-flex justify-content-end col-6">
-    <%= link_to "Cadastrar", new_produto_path, class:"btn btn-sm btn-success" %>
-  </div>
+
 </div>
 

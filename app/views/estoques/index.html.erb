@@ -39,21 +39,20 @@
     <% end %>
   </tbody>
 </table>
-
 <div class="text-center" >
   <%= paginate @estoques, theme: 'bootstrap-5', pagination_class: "pagination-sm flex-wrap justify-content-center",
                    nav_class: "d-inline-block"%>
 </div>
+<div class="d-flex justify-content-end col-12">
+  <%= link_to "Cadastrar", new_estoque_path, class:"btn btn-sm btn-success" %>
+</div>
 <div class="row actions text-end1">
-  <div class="d-flex justify-content-start col-6">
-    <div class="col-6">
-      Total de Registros: <%= @estoquesAll.count %>
+  <div class="d-flex justify-content-start col-12">
+    <div class="col-6 justify-content-center">
+      <span style= "font-size: small">Total de Registros: <%= @estoquesAll.count %></span>
     </div>
      <div class="col-6">
-      Gerar relatorio CSV <a href="/estoques.csv"><i class="fa-solid fa-file-csv"></i></a>
+     <span style= "font-size: small"> CSV <a href="/estoques.csv"><i class="fa-solid fa-file-csv"></i></a></span>
     </div>
-  </div>
-  <div class="d-flex justify-content-end col-6">
-    <%= link_to "Cadastrar", new_estoque_path, class:"btn btn-sm btn-success" %>
   </div>
 </div>
