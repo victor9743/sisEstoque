@@ -27,14 +27,21 @@ class ProdutosController < ApplicationController
 
   # GET /produtos/1/edit
   def edit
+    @ernome, @ervalid, @ercodbarras = ""
   end
 
   # POST /produtos or /produtos.json
   def create
     @produto = Produto.new(produto_params)
+    @ernome, @ervalid, @ercodbarras = ""
+
+    #verifico se o codigo de barras possui 12 digitos
+    validCampos(@produto.nomeproduto, @produto.dtavalidade, @produto.codbarras)
+
 
     respond_to do |format|
-      if @produto.save
+      if @ernome.blank? && @ervalid.blank? && @ercodbarras.blank?
+        @produto.save
         format.html { redirect_to produtos_url, notice: "Produto criado com sucesso" }
         format.json { render :index, status: :created, location: @produto }
       else
@@ -48,7 +55,7 @@ class ProdutosController < ApplicationController
   def update
     respond_to do |format|
       if @produto.update(produto_params)
-        format.html { redirect_to produtos_url(@produto), notice: "Produto salvo com sucesso" }
+        format.html { redirect_to produtos_url, notice: "Produto salvo com sucesso" }
         format.json { render :index, status: :ok, location: @produto }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -65,6 +72,25 @@ class ProdutosController < ApplicationController
       format.html { redirect_to produtos_url, notice: "Produto was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+  
+  #validar campos do formulário
+  def validCampos (nome, valid, codbarras)
+
+    if codbarras.blank?
+      @ercodbarras = "Preenchimento do código de barras obrigatório"
+    elsif codbarras.length != 12
+      @ercodbarras = "Código de barras Inválido"
+    end
+
+    if nome.blank?
+      @ernome = "Preenchimento do nome obrigatório"     
+    end
+
+    if valid.blank?
+      @ervalid = "Preenchimento de data obrigatório"
+    end
+  
   end
 
   private

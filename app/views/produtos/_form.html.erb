@@ -19,16 +19,25 @@
   <div class="field mb-3">
     <%= form.label t("fields.nomeproduto") , class:"form-label" %>
     <%= form.text_field :nomeproduto, class:"form-control form-control-sm col-lg-6 col-sm-12", id:"nomeProduto" %>
+    <% if !@ernome.blank? %>
+      <p class="text-danger" style="font-size: 10pt"><%= @ernome %></p>
+    <% end %>
   </div>
 
   <div class="field mb-3">
     <%= form.label t("fields.dtavalidade"), class:"form-label" %>
     <%= form.date_field :dtavalidade, class:"form-control form-control-sm col-lg-4 col-sm-12", id:"dtavalidade" %>
+    <% if !@ervalid.blank? %>
+      <p class="text-danger" style="font-size: 10pt"><%= @ervalid %></p>
+    <% end %>
   </div>
 
   <div class="field mb-3">
     <%= form.label t("fields.codbarras"), class:"form-label" %>
     <%= form.number_field :codbarras, class:"form-control form-control-sm col-lg-4 col-sm-12", id:"codBarras" %>
+    <% if !@ercodbarras.blank? %>
+      <p class="text-danger" style="font-size: 10pt"><%= @ercodbarras %></p>
+    <% end %>
   </div>
 
   <div class="actions text-end row">
