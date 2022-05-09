@@ -3,9 +3,8 @@ namespace :usuario_god do
     task new_user: :environment do
         User.create!(
             email: "god@god.com",
-            tipo_user: 1,
             password: 123456,
-            ativo: true
+          
         )
     end
 
