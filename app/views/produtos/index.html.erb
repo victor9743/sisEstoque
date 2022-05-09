@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <h3>Produtos</h3>
-<table class="table table-bordered table-hover container">
+<table class="table table-bordered table-hover container" style= "margin-top: 130px">
     <thead class="text-light">
         <tr>
           <th>#</th>
@@ -15,7 +15,7 @@
         <tr>
           <td style="width:40px"><%= produto.id %></td>
           <td><%= produto.nomeproduto %></td>
-          <td style="width:90px"><%= formatarData(produto.dtavalidade) %></td>
+          <td class = "<%= formatarData(produto.dtavalidade) < Time.now.strftime('%d/%m/%Y') ? 'text-danger' : 'text-success' %>" style="width:90px"><%= formatarData(produto.dtavalidade) %></td>
           <td style="width:190px"><%= produto.codbarras %></td>
           <td style="width:90px; text-align:center"><%= link_to edit_produto_path(produto) do %>
                 <i class="fa fa-edit mr-2 text-warning"></i>

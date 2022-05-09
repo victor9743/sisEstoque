@@ -35,8 +35,9 @@ class ProdutosController < ApplicationController
     @produto = Produto.new(produto_params)
     @ernome, @ervalid, @ercodbarras = ""
 
-    #verifico se o codigo de barras possui 12 digitos
+ 
     validCampos(@produto.nomeproduto, @produto.dtavalidade, @produto.codbarras)
+    
 
 
     respond_to do |format|
@@ -81,14 +82,18 @@ class ProdutosController < ApplicationController
       @ercodbarras = "Preenchimento do código de barras obrigatório"
     elsif codbarras.length != 12
       @ercodbarras = "Código de barras Inválido"
+    elsif !Produto.find_by(codbarras: codbarras).blank?
+      @ercodbarras = "Já existe um código de barras cadastrado no sistema"
     end
 
     if nome.blank?
-      @ernome = "Preenchimento do nome obrigatório"     
+      @ernome = "Preenchimento do nome obrigatório"
     end
 
     if valid.blank?
       @ervalid = "Preenchimento de data obrigatório"
+    elsif valid < Time.now.strftime("%d/%m/%Y")
+      @ervalid = "A data de validade do produto deve ser igual ou maior que a data de hoje"
     end
   
   end
