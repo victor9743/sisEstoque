@@ -1,27 +1,47 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Tipoprodutos</h1>
+<h3>Tipos de produtos</h3>
 
-<table>
-  <thead>
+<table class="table table-bordered table-hover container" style="width:47%">
+  <thead class="text-light">
     <tr>
-      <th>Nomeproduto</th>
-      <th colspan="3"></th>
+      <th>#</th>
+      <th>Tipo de produto</th>
+      <th>Opções</th>
     </tr>
   </thead>
 
   <tbody>
     <% @tipoprodutos.each do |tipoproduto| %>
       <tr>
-        <td><%= tipoproduto.nomeproduto %></td>
-        <td><%= link_to 'Show', tipoproduto %></td>
-        <td><%= link_to 'Edit', edit_tipoproduto_path(tipoproduto) %></td>
-        <td><%= link_to 'Destroy', tipoproduto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td style="width:40px"><%= tipoproduto.id %></td>
+        <td style="width:340px"><%= tipoproduto.nomeproduto %></td>
+        <td style="width:40px; text-align:center"><%= link_to edit_tipoproduto_path(tipoproduto) do %>
+              <i class="fa fa-edit mr-2 text-warning"></i>
+            <% end %>
+            <%= link_to tipoproduto, method: :delete do %>
+              <i class="fa-solid fa-trash text-danger"></i>
+            <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Tipoproduto', new_tipoproduto_path %>
+<div class="text-center" >
+  <%= paginate @tpprodutos, theme: 'bootstrap-5', pagination_class: "pagination-sm flex-wrap justify-content-center",
+                   nav_class: "d-inline-block"%>
+</div>
+<div class="d-flex justify-content-end col-9">
+<%= link_to "Cadastrar", new_tipoproduto_path, class:"btn btn-sm btn-success" %>
+</div>
+<div class="row actions text-end1" >
+  <div class="d-flex justify-content-start col-12">
+    <div class="col-6 justify-content-center">
+    <span style= "font-size: small">Total de Registros: <%= @tipoprodutos.count %></span>
+    </div>
+     <div class="col-6">
+     <span style= "font-size: small">CSV <a href="/tipoprodutos.csv"><i class="fa-solid fa-file-csv"></i></a></span>
+    </div>
+  </div>
+</div>

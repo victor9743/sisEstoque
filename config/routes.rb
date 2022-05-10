@@ -16,6 +16,12 @@ Rails.application.routes.draw do
     collection { post :import }
   end
 
+  #planilha tipo de produtos
+  resources :tipoprodutos do
+    collection { post :import }
+  end
+
+
   #planilha estoque
   resources :estoques do
     collection { post :import }

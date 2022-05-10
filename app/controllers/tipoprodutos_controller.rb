@@ -1,9 +1,21 @@
 class TipoprodutosController < ApplicationController
   before_action :set_tipoproduto, only: %i[ show edit update destroy ]
-
+  layout 'menuInicialApplication'
   # GET /tipoprodutos or /tipoprodutos.json
   def index
     @tipoprodutos = Tipoproduto.all
+    @tpprodutos = Tipoproduto.all.page(params[:page])
+
+    
+    respond_to do |format|
+      format.html
+      format.csv { send_data @tipoprodutos.to_csv(['id', 'nomeproduto']) }
+    end
+  end
+
+  def import 
+    Tipoproduto.import(params[:file])
+    redirect_to root_url, notice: "Relatório importados."
   end
 
   # GET /tipoprodutos/1 or /tipoprodutos/1.json
@@ -25,7 +37,7 @@ class TipoprodutosController < ApplicationController
 
     respond_to do |format|
       if @tipoproduto.save
-        format.html { redirect_to tipoproduto_url(@tipoproduto), notice: "Tipoproduto was successfully created." }
+        format.html { redirect_to tipoprodutos_url, notice: "Tipoproduto was successfully created." }
         format.json { render :show, status: :created, location: @tipoproduto }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +50,7 @@ class TipoprodutosController < ApplicationController
   def update
     respond_to do |format|
       if @tipoproduto.update(tipoproduto_params)
-        format.html { redirect_to tipoproduto_url(@tipoproduto), notice: "Tipoproduto was successfully updated." }
+        format.html { redirect_to tipoprodutos_url, notice: "Tipoproduto was successfully updated." }
         format.json { render :show, status: :ok, location: @tipoproduto }
       else
         format.html { render :edit, status: :unprocessable_entity }
