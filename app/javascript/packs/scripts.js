@@ -6,6 +6,7 @@
     // 
 // Scripts
 // 
+require('chart.js');
 
 window.addEventListener('DOMContentLoaded', event => {
 

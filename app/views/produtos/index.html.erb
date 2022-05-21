@@ -1,5 +1,11 @@
 <!--<p id="notice"><%= notice %></p>-->
 <h3>Produtos</h3>
+
+<div class="row" style="margin-bottom: 8%;">
+    <div class="col-4 container">
+      <canvas id="myChart" width="100" height="100"></canvas>
+    </div>
+</div>
 <table class="table table-bordered table-hover container">
     <thead class="text-light">
         <tr>
@@ -44,6 +50,31 @@
      <span style= "font-size: small">CSV <a href="/produtos.csv"><i class="fa-solid fa-file-csv"></i></a></span>
     </div>
   </div>
-
 </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"> </script>
+<script>
+  const ctx = document.getElementById('myChart').getContext('2d');
+  const data = {
+    labels: [
+      'Produtos na validade',
+      'Produtos fora da validade'
+    ],
+    datasets: [{
+      label: 'My First Dataset',
+      data: [<%= @dentroValidade %>, <%= @foraValidade %>],
+      backgroundColor: [
+        'rgb(95, 226, 108)',
+        'rgb(194, 22, 22)',
+      ],
+      hoverOffset: 4
+    }]
+  };
+  const myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: data
+  });
+
+</script>
 

@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<%= javascript_pack_tag 'estoque' %>
 <h3>Estoque</h3>
 
 <table class="table table-bordered table-hover">
@@ -9,8 +9,6 @@
       <th>Nome do Produto</th>
       <th>Qtd. entrada</th>
       <th>Qtd. saida</th>
-      <th>Data de entrada</th>
-      <th>Data de saida</th>
       <th>Valor de entrada</th>
       <th>Valor de saida</th>
       <th colspan="3">Opções</th>
@@ -24,16 +22,18 @@
         <td><%= estoque.produto.nomeproduto %></td>
         <td><%= estoque.qtdentrada %></td>
         <td><%= estoque.qtdsaida %></td>
-        <td><%= formatarData(estoque.dataentrada) %></td>
-        <td><%= formatarData(estoque.datasaida) %></td>
         <td><%= formatarValor(estoque.valorentrada) %></td>
         <td><%= formatarValor(estoque.valorsaida) %></td>
-        <td style="text-align:center"><%= link_to edit_estoque_path(estoque) do %>
+        <td style="text-align:center">
+            <button class="fa-solid fa-magnifying-glass text-primary" style="margin-right: 5px; cursor:pointer;" id="estoque" value="<%= estoque.id %>">
+            </button>
+            <%= link_to edit_estoque_path(estoque) do %>
               <i class="fa fa-edit mr-2 text-warning"></i>
             <% end %>
             <%= link_to estoque, method: :delete  do %>
               <i class="fa-solid fa-trash text-danger"></i>
             <% end %>
+            
         </td>
       </tr>
     <% end %>
@@ -54,5 +54,7 @@
      <div class="col-6">
      <span style= "font-size: small"> CSV <a href="/estoques.csv"><i class="fa-solid fa-file-csv"></i></a></span>
     </div>
+    
   </div>
 </div>
+

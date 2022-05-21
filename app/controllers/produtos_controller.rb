@@ -8,6 +8,12 @@ class ProdutosController < ApplicationController
   def index
     @produtosAll = Produto.all
     @produtos = Produto.all.page(params[:page])
+    
+    #produtos fora da validade
+    @foraValidade = @produtosAll.where("dtavalidade < ?", Time.now).count
+    
+    #produtos dentro da validade
+    @dentroValidade = @produtosAll.where("dtavalidade >= ?", Time.now).count
 
     respond_to do |format|
       format.html
